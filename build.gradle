@@ -1,5 +1,7 @@
 apply plugin: 'java'
+apply plugin: 'application'
 
+mainClassName = 'info.zthings.kl.KeyLogger'
 sourceCompatibility = targetCompatibility = '1.8'
 
 repositories {
@@ -8,4 +10,14 @@ repositories {
 
 dependencies {
 	compile 'com.1stleg:jnativehook:2.1.0'
+}
+
+jar {
+	manifest {
+		attributes 'Main-Class': mainClassName
+	}
+ 
+	from {
+		configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+	}
 }
