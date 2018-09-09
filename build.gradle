@@ -1,0 +1,11 @@
+apply plugin: 'java'
+
+sourceCompatibility = targetCompatibility = '1.8'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	compile 'com.1stleg:jnativehook:2.1.0'
+}
